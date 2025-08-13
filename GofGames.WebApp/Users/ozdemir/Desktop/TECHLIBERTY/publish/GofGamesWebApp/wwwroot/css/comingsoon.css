@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: black;
+  color: white;
+  height: 100vh;
+  background-image: url('/images/comingsoon-bg.svg');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.bg-svg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url('/images/comingsoon-bg.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered h1 {
+  font-size: 5rem;
+  line-height: 1.2;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+footer {
+  position: absolute;
+  bottom: 25px;
+  width: 100%;
+  text-align: center;
+}
+
+footer .logo-big {
+  height: 90px;
+  transition: transform 0.3s;
+}
+
+footer .logo-big:hover {
+  transform: scale(1.05);
+}
+
+/* Countdown */
+
+.countdown {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 2;
+}
+
+.flip-row {
+  position: relative;
+  width: fit-content;
+  height: 90px;
+}
+
+.flip-card {
+  position: relative;
+  z-index: 2; /* KART önde */
+  width: 110px;
+  height: 90px;
+  background: linear-gradient(135deg, #1f84ec, #4ed2f4);
+  border-radius: 12px;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 90px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  padding-left: 0; /* artık gerek yok */
+  margin-left: 0;
+  overflow: hidden;
+}
+
+
+.flip-side-label {
+  position: absolute;
+  left: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #092257;
+  color: #D4D6D7;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  padding: 6px 16px 6px 12px;
+  border-radius: 6px 0 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 1; /* etiket kutunun arkasında */
+}
+
+
+
+
+
+.flip-card.flip {
+  animation: flipDown 0.5s ease forwards;
+}
+
+@keyframes flipDown {
+  0%   { transform: rotateX(0deg); }
+  50%  { transform: rotateX(-90deg); }
+  100% { transform: rotateX(0deg); }
+}
+
+@media screen and (max-width: 768px) {
+
+  .countdown {
+    position: sticky;
+    top: 0;
+    padding: 10px;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .flip-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: auto;
+  }
+
+  .flip-side-label {
+    position: static;
+    transform: none;
+    background: #092257;
+    color: #D4D6D7;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    z-index: auto;
+    box-shadow: none;
+    white-space: nowrap;
+  }
+
+  .flip-card {
+    width: 70px;
+    height: 70px;
+    font-size: 1.7rem;
+    line-height: 70px;
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .centered h1 {
+    font-size: 3rem;
+  }
+
+  footer .logo-big {
+    height: 60px;
+  }
+}
+
